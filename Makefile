@@ -1,5 +1,5 @@
 SRC = *.go
-DIST = main
+DIST = bin/main
 
 default: $(DIST)
 
