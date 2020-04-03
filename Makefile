@@ -16,11 +16,7 @@ clean:
 
 .PHONY: run
 run:
-	go run $(SRC)
-
-.PHONY: test
-test:
-	go test
+	go run .
 
 .PHONY: check
 check:

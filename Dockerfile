@@ -1,10 +1,9 @@
-FROM golang:1.13.7
+FROM golang:latest
 
 WORKDIR /go/src/app
 
 COPY . .
 
-RUN make test
 RUN make build-alpine
 
 FROM alpine:latest
