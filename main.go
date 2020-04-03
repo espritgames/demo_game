@@ -21,7 +21,7 @@ func main() {
 
 	go func() {
 		for {
-			userID := rand.Intn(maxUsers)
+			userID := rand.Intn(maxUsers - 1)
 			levels[userID+1]++
 			time.Sleep(100 * time.Millisecond)
 		}
