@@ -16,14 +16,14 @@ const maxUsers = 10000
 func main() {
 	levels := make([]int, maxUsers)
 	for i := 0; i < maxUsers; i++ {
-		levels[i] = rand.Intn(10)
+		levels[i] = 1 + rand.Intn(9)
 	}
 
 	go func() {
 		for {
-			level := rand.Intn(maxUsers)
-			levels[level+1]++
-			time.Sleep(5 * time.Second)
+			userID := rand.Intn(maxUsers)
+			levels[userID+1]++
+			time.Sleep(100 * time.Millisecond)
 		}
 	}()
 
@@ -45,6 +45,8 @@ func main() {
 		}
 		level := levels[userID-1]
 
+		// Simulate response delay
+		time.Sleep(time.Millisecond * time.Duration(100+rand.Intn(900)))
 		w.Header().Add("Content-Type", "application/json")
 		fmt.Fprintf(w, `{"id": %d, "level": %d}`, userID, level)
 	})
