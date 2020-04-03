@@ -1,0 +1,16 @@
+name: Docker Image CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: "Build and publish Docker image"
+      uses: elgohr/Publish-Docker-Github-Action@2.12
+      with:
+        name: "${{ github.repository }}/demo_game"
+        username: "${{ secrets.DOCKER_REGISTRY_LOGIN }}"
+        password: "${{ secrets.DOCKER_REGISTRY_PASSWORD }}"
+        registry: docker.pkg.github.com
