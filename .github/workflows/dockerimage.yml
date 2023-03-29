@@ -8,7 +8,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: "Build and publish Docker image"
-      uses: elgohr/Publish-Docker-Github-Action@2.12
+      uses: elgohr/Publish-Docker-Github-Action@v5
       with:
         name: "${{ github.repository }}/demo_game"
         username: "${{ secrets.DOCKER_REGISTRY_LOGIN }}"
